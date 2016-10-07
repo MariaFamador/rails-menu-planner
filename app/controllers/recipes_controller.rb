@@ -1,10 +1,25 @@
 class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
+    @ingredients = @recipe.ingredients.build
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
+    if @recipe.save
+      redirect_to recipe_path(@recipe.id)
+    else
+      render :new
+    end
+  end
+
+  def show
+    @recipe = Recipe.find(recipe_id)  
+    @ingredients = @recipe.ingredients
+  end
+
+  def index
+    @recipes = Recipe.all
   end
 
 private
