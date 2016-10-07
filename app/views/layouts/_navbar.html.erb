@@ -1,9 +1,7 @@
-<div class='container'>
-<br>
+<div class='container navbar'>
   <ul type='none' class='nav-items'>
-    <%= link_to_active? "New Recipe", new_recipe_path, class: 'btn btn-large btn-default' %>
     <%= link_to_active? "Recipes", recipes_path, class: 'btn btn-large btn-default' %>
     <%= link_to_active? "Menus", menus_path, class: 'btn btn-large btn-default' %>
+    <%= link_to_active? "New Recipe", new_recipe_path, class: 'btn btn-large btn-default new-recipe' %>
   </ul>
-
 </div>
