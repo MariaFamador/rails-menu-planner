@@ -1,23 +1,27 @@
 <div class='container'>
   <h1 class='center'><%= @recipe.title %></h1>
 
-
-  <h3>Ingredients:</h3>
-  <% if @ingredients.nil? %>
-    <h5><i>There were no ingredients saved for this recipe.</i></h5>
-  <% else %>
-    <ol type="1">
-      <% @ingredients.each do |ingredient| %>
-        <li type="1"><%= ingredient.label %></li>
+  <div class='recipe-show-container'>
+    <h3>Ingredients:</h3>
+      <% if @ingredients.nil? %>
+        <h5><i>There were no ingredients saved for this recipe.</i></h5>
+      <% else %>
+        <ul type="none">
+          <% @ingredients.each do |ingredient| %>
+            <li><%= ingredient.label %></li>
+          <% end %>
+        </ul>
       <% end %>
-    </ol>
-  <% end %>
 
-  </br>
-  <h3>Procedure:</h3>
-  <% if @recipe.procedure.blank? %>
-    <h5><i>There is no procedure saved for this recipe.</i></h5>
-  <% else %>
-    <%= simple_format "#{@recipe.procedure}", wrapper_tag: 'div'  %>
-  <% end %>
-</div>
+      </br>
+      <h3>Procedure:</h3>
+      <% if @recipe.procedure.blank? %>
+        <h5><i>There is no procedure saved for this recipe.</i></h5>
+      <% else %>
+        <div class='procedure-text'>
+          <%= simple_format "#{@recipe.procedure}", wrapper_tag: 'div'  %>      
+        </div>
+      <% end %>
+    </div>  
+  </div>
+  
