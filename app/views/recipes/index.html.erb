@@ -1,0 +1,12 @@
+<div class='container'>
+  <h1>All Recipes</h1>
+  <% if @recipes.all? &:blank? %>
+    <h3>There are no saved recipes.</h3>
+  <% else %>
+    <ol type="1">
+      <% @recipes.each do |recipe| %>
+        <li><%= link_to recipe.title, recipe_path(recipe.id) %></li>
+      <% end %>
+    </ol>
+  <% end %>
+</div>
