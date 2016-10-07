@@ -18,6 +18,7 @@ private
       :menu_id, 
       :title, 
       :category, 
-      procedure: {})
+      :procedure,
+      ingredients_attributes: [:label, :recipe_id])
   end
 end
